@@ -14,4 +14,4 @@ export const FormPreview: React.FC<FormPreviewProps> = ({ components }) => {
       ))}
     </div>
   );
-}; 
+};

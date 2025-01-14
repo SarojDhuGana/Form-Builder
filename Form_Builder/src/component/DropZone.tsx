@@ -14,16 +14,22 @@ export const DropZone: React.FC<DropZoneProps> = ({ onDrop, components }) => {
   }));
 
   return (
-    <div ref={dropRef} style={{ minHeight: "300px" }}>
-      {components.length === 0 ? (
-        <p style={{ color: "#999", textAlign: "center" }}>
-          Drag components here
-        </p>
-      ) : (
-        components.map((type, index) => (
-          <FormComponent key={index} type={type} />
-        ))
-      )}
-    </div>
+    <>
+      <div>
+        <h1 className="text-center text-2xl text-orange-600">Create Form</h1>
+      </div>
+      <div ref={dropRef} style={{ minHeight: "300px" }}>
+        {components.length === 0 ? (
+          <p className="text-xl text-center mt-10 p-20 rounded-xl border-2 bg-gray-200">
+            <div className="text-4xl text-blue-500 ">+</div>
+            <span className="font-sans">Drage the component here</span>
+          </p>
+        ) : (
+          components.map((type, index) => (
+            <FormComponent key={index} type={type} />
+          ))
+        )}
+      </div>
+    </>
   );
 };

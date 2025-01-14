@@ -1,7 +1,7 @@
 import React from "react";
 import { useDrag } from "react-dnd";
 
-const ComponentBox: React.FC<{ type: string }> = ({ type }) => {
+const ComponentBox: React.FC<{ type: string; label: string }> = ({ type }) => {
   const [, dragRef] = useDrag(() => ({
     type: "FORM_COMPONENT",
     item: { type },
@@ -13,7 +13,9 @@ const ComponentBox: React.FC<{ type: string }> = ({ type }) => {
       style={{
         padding: "10px",
         margin: "10px 0",
-        backgroundColor: "#f4f4f4",
+        backgroundColor: "red",
+        color: "white",
+        textTransform: "capitalize",
         borderRadius: "4px",
         cursor: "grab",
         textAlign: "center",
@@ -26,17 +28,11 @@ const ComponentBox: React.FC<{ type: string }> = ({ type }) => {
 };
 
 export const ComponentLibrary: React.FC = () => (
-  <div
-    style={{
-      width: "200px",
-      padding: "10px",
-      backgroundColor: "#f9f9f9",
-      borderRadius: "8px",
-    }}
-  >
-    <h3>Component Library</h3>
-    <ComponentBox type="text" />
-    <ComponentBox type="select" />
-    <ComponentBox type="radio" />
+  <div className=" w-[250px] p-5 rounded-md border-2 border-pink-200 shadow-lg shadow-pink-500  h-[96]">
+    <h3 className="text-2xl text-gray-200">Form Component</h3>
+    <ComponentBox type="text" label="Username" />
+    <ComponentBox type="select" label="Choose an option" />
+    <ComponentBox type="radio" label="Select an option" />
+    <ComponentBox type="button" label="Submit" />
   </div>
 );
